@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Питання до бухгалтерки — БФ «Мир і Добробут 777»</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#15191D; --panel:#1D2328; --line:#2D353C; --text:#F9F9F9; --muted:#9BA7B1;
+  --head:#9DBAD3; --slate:#537391; --band:#576C7E; --gold:#F0A800; --ok:#9ED3A8; --warn:#F0C24B;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Open Sans",system-ui,"Segoe UI",sans-serif;padding-inline:18px}
+.top{border-bottom:1px solid var(--line)}
+.top .in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px;padding-block:14px}
+.top img{width:44px;height:44px}
+.top b{font:500 1rem/1.25 Roboto,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding-block:36px 72px;display:grid;gap:36px}
+h1,h2{font-family:Roboto,Arial,sans-serif;color:var(--head);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:2rem;font-weight:700}
+h2{font-size:1.35rem;font-weight:700}
+.intro{display:grid;gap:12px}
+.intro p{margin:0;max-width:64ch}
+.note{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:6px}
+.note strong{color:var(--gold);font-weight:600}
+.progress{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:.9rem;color:var(--muted)}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;max-width:260px}
+.bar i{display:block;height:100%;background:var(--slate);width:0;transition:width .3s}
+section{display:grid;gap:16px}
+.q{display:grid;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px}
+.q label{font-weight:600;line-height:1.45}
+.q label .n{font:500 .85rem Roboto,Arial,sans-serif;color:var(--head);margin-right:6px}
+textarea{width:100%;min-height:64px;resize:vertical;font:15px/1.5 "Open Sans",sans-serif;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px 12px}
+textarea:focus{outline:2px solid var(--slate);outline-offset:1px;border-color:var(--slate)}
+.st{font-size:.8rem;color:var(--muted);min-height:1.2em}
+.st.ok{color:var(--ok)} .st.warn{color:var(--warn)}
+.done{display:grid;gap:12px;justify-items:start;background:var(--band);border-radius:6px;padding:22px}
+.done h2{color:var(--text)}
+.done p{margin:0;max-width:60ch}
+button{font:600 1rem "Open Sans",sans-serif;background:var(--gold);color:#1C1C1C;border:0;border-radius:6px;padding:12px 22px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+button[disabled]{opacity:.6;cursor:default}
+.locked{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
+footer{max-width:760px;margin:0 auto;padding-block:20px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media (max-width:520px){h1{font-size:1.6rem}.progress{flex-wrap:wrap}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="">
+  <b>Благодійний фонд<br>«Мир і Добробут 777»</b>
+</div></header>
+
+<main>
+  <div class="intro">
+    <h1>Питання до бухгалтерки фонду</h1>
+    <p>Катерино, добрий день! Ми оновлюємо сайт фонду й готуємося до грантових заявок. Грантодавці перевіряють цифри, тому просимо відповісти на питання нижче.</p>
+    <p>Пишіть, як вам зручно. Якщо точної цифри немає — напишіть «приблизно» або «не знаю», це теж відповідь. Якщо питання не до вас — напишіть, до кого.</p>
+    <div class="note">
+      <span><strong>Відповіді зберігаються самі</strong> — одразу, як ви перестали друкувати. Можна закрити сторінку й повернутися пізніше за тим самим посиланням.</span>
+      <span>Не пишіть сюди імена, телефони та інші персональні дані людей, яким допомагали. Потрібні лише кількості.</span>
+    </div>
+  </div>
+
+  <div class="progress" aria-live="polite">
+    <span id="count">Відповіли на 0 з 0</span>
+    <span class="bar"><i id="barFill"></i></span>
+    <span id="conn"></span>
+  </div>
+
+  <div id="form"></div>
+
+  <div class="done">
+    <h2>Коли все готово</h2>
+    <p>Натисніть кнопку — ми отримаємо повідомлення. Відповіді й після цього можна доповнювати.</p>
+    <button type="button" id="finish">Готово, відповіді надіслано</button>
+    <span class="st" id="finishSt"></span>
+  </div>
+</main>
+
+<footer>Технічний супровід — Smart Attic. Сторінка не індексується пошуковиками.</footer>
+
+<script>
+const CONFIG = {
+  endpoint: "" // URL веб-застосунку Apps Script (…/exec). Поки порожній — відповіді лишаються на цьому пристрої.
+};
+
+const SECTIONS = [
+  { id: "money", title: "1. Гроші фонду", items: [
+    ["1.1", "Скільки грошей надійшло на рахунок фонду у 2025 році? А з січня 2026 року до сьогодні?"],
+    ["1.2", "Звідки надходять кошти: пожертви людей, пожертви організацій чи бізнесу, гранти, інше? Приблизно в якій частці?"],
+    ["1.3", "На що фонд витрачає гроші? Назвіть головні статті: утримання реабілітаційного центру, продукти, пальне, зарплати, техніка, оренда, інше."],
+    ["1.4", "Продукти для пакунків «Є надія» фонд купує сам чи вони надходять гуманітарною допомогою?"],
+    ["1.5", "Чи подає фонд звітність до податкової як неприбуткова організація (звіт про використання доходів)? За які роки?"],
+    ["1.6", "З 19.02.2026 у штаті дві посади — директор і бухгалтер. Чи працює ще хтось за договором, чи решта — волонтери?"],
+    ["1.7", "Хто входить до Правління фонду і з якого року?"],
+    ["1.8", "Скільки актів приймання-передачі фонд склав у 2025 і у 2026 роках? Лише кількість."],
+    ["1.9", "Акт із Житомирською установою виконання покарань № 8 від 14.02.2025 (монітор, ноутбук, кавоварка): яка загальна вартість за актом?"],
+    ["1.10", "Звіт про доходи й витрати за 2026 рік: коли реально можна його підготувати?"],
+  ]},
+  { id: "center", title: "2. Реабілітаційний центр при церкві «Перемога»", items: [
+    ["2.1", "Коли центр прийняв першу людину (місяць і рік)?"],
+    ["2.2", "Скільки людей пройшло через центр від відкриття? Скільки живе зараз?"],
+    ["2.3", "Скільки в середньому людина живе в центрі?"],
+    ["2.4", "Що з людьми після центру: скільки повернулися до родини, знайшли житло, роботу, відновили документи, пішли раніше строку? Лише кількість."],
+    ["2.5", "Скільки приблизно коштує утримання центру на місяць? А на одну людину?"],
+    ["2.6", "Що саме оплачує фонд: харчування, комунальні послуги, роботу фахівців, ліки, транспорт, інше?"],
+    ["2.7", "Які фахівці працюють із людьми в центрі і як часто (щодня, раз на тиждень)?"],
+    ["2.8", "Приміщення центру: чиє воно і на яких умовах (договір із церквою, безоплатно, оренда)?"],
+    ["2.9", "Чи ведеться облік перебування (дати заїзду й виїзду)?"],
+    ["2.10", "Чи були листи, подяки або спільна робота з державними службами щодо людей із центру (соцслужби, ЦНАП, госпіталь, інше)?"],
+  ]},
+  { id: "nadiya", title: "3. Видачі «Є надія»", items: [
+    ["3.1", "Скільки видач було з початку 2026 року?"],
+    ["3.2", "Хто передає партії допомоги? Чи є на них накладні або інші документи?"],
+  ]},
+];
+
+const key = new URLSearchParams(location.search).get("k") || "";
+const LS = "bf777-pytannya:" + (key.slice(0, 8) || "local");
+const store = (() => { try { return JSON.parse(localStorage.getItem(LS) || "{}"); } catch { return {}; } })();
+const saveLocal = () => { try { localStorage.setItem(LS, JSON.stringify(store)); } catch {} };
+const timers = {};
+const pending = new Set();
+const all = SECTIONS.flatMap(s => s.items.map(([n, q]) => ({ n, q, section: s.title, qid: "q" + n.replace(".", "_") })));
+
+function build() {
+  const form = document.getElementById("form");
+  form.innerHTML = SECTIONS.map(s => `
+    <section aria-labelledby="h-${s.id}">
+      <h2 id="h-${s.id}">${s.title}</h2>
+      ${s.items.map(([n, q]) => {
+        const qid = "q" + n.replace(".", "_");
+        return `<div class="q">
+          <label for="${qid}"><span class="n">${n}</span>${q}</label>
+          <textarea id="${qid}" data-qid="${qid}" rows="2"></textarea>
+          <span class="st" id="st-${qid}"></span>
+        </div>`;
+      }).join("")}
+    </section>`).join("");
+  all.forEach(a => {
+    const ta = document.getElementById(a.qid);
+    ta.value = store[a.qid]?.answer || "";
+    grow(ta);
+  });
+  updateCount();
+}
+
+function grow(ta) { ta.style.height = "auto"; ta.style.height = Math.max(64, ta.scrollHeight + 2) + "px"; }
+
+function updateCount() {
+  const n = all.filter(a => (document.getElementById(a.qid).value || "").trim()).length;
+  document.getElementById("count").textContent = `Відповіли на ${n} з ${all.length}`;
+  document.getElementById("barFill").style.width = (100 * n / all.length) + "%";
+}
+
+function setSt(qid, text, cls) {
+  const el = document.getElementById("st-" + qid);
+  if (!el) return;
+  el.textContent = text; el.className = "st" + (cls ? " " + cls : "");
+}
+
+const time = () => new Date().toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" });
+
+async function send(qid) {
+  const a = all.find(x => x.qid === qid);
+  const answer = document.getElementById(qid).value;
+  store[qid] = { answer, local: Date.now() };
+  saveLocal();
+  if (!CONFIG.endpoint || !key) {
+    setSt(qid, "Збережено на цьому пристрої", "warn");
+    return;
+  }
+  setSt(qid, "Зберігаю…");
+  pending.add(qid);
+  try {
+    const r = await fetch(CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ k: key, qid, section: a.section, question: a.n + " " + a.q, answer })
+    });
+    const res = await r.json();
+    if (!res.ok) throw new Error(res.error || "помилка");
+    setSt(qid, "Збережено о " + time(), "ok");
+    document.getElementById("conn").textContent = "";
+  } catch (e) {
+    setSt(qid, "Немає зв'язку — збережено на цьому пристрої, спробуємо ще раз", "warn");
+    document.getElementById("conn").textContent = "Немає зв'язку";
+    setTimeout(() => send(qid), 15000);
+  } finally {
+    pending.delete(qid);
+  }
+}
+
+document.addEventListener("input", e => {
+  const ta = e.target.closest("textarea[data-qid]"); if (!ta) return;
+  grow(ta); updateCount();
+  const qid = ta.dataset.qid;
+  setSt(qid, "Друкуєте…");
+  clearTimeout(timers[qid]);
+  timers[qid] = setTimeout(() => send(qid), 1200);
+});
+
+document.addEventListener("focusout", e => {
+  const ta = e.target.closest("textarea[data-qid]"); if (!ta) return;
+  const qid = ta.dataset.qid;
+  if (timers[qid]) { clearTimeout(timers[qid]); timers[qid] = null; send(qid); }
+});
+
+window.addEventListener("pagehide", () => {
+  Object.entries(timers).forEach(([qid, t]) => {
+    if (!t || !CONFIG.endpoint || !key) return;
+    const a = all.find(x => x.qid === qid);
+    navigator.sendBeacon?.(CONFIG.endpoint, new Blob([JSON.stringify({ k: key, qid, section: a.section, question: a.n + " " + a.q, answer: document.getElementById(qid).value })], { type: "text/plain" }));
+  });
+});
+
+document.getElementById("finish").addEventListener("click", async () => {
+  const b = document.getElementById("finish"), st = document.getElementById("finishSt");
+  b.disabled = true; st.textContent = "Надсилаю…"; st.className = "st";
+  if (!CONFIG.endpoint || !key) { st.textContent = "Сторінка ще не підключена до збереження — відповіді лишились на цьому пристрої."; st.className = "st warn"; b.disabled = false; return; }
+  try {
+    const r = await fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ k: key, qid: "_done", section: "—", question: "Позначка «Готово»", answer: "Готово " + new Date().toLocaleString("uk-UA") }) });
+    const res = await r.json();
+    if (!res.ok) throw new Error(res.error);
+    st.textContent = "Дякуємо! Ми отримали позначку."; st.className = "st ok";
+  } catch (e) {
+    st.textContent = "Не вдалося надіслати. Спробуйте ще раз за хвилину."; st.className = "st warn"; b.disabled = false;
+  }
+});
+
+async function loadRemote() {
+  if (!CONFIG.endpoint || !key) {
+    document.getElementById("conn").textContent = key ? "" : "Посилання без ключа — відповіді лишаться на цьому пристрої";
+    return;
+  }
+  try {
+    const r = await fetch(CONFIG.endpoint + "?action=load&k=" + encodeURIComponent(key));
+    const res = await r.json();
+    if (!res.ok) { document.getElementById("conn").textContent = res.error === "key" ? "Неправильне посилання — попросіть нове" : ""; return; }
+    Object.entries(res.answers || {}).forEach(([qid, v]) => {
+      const ta = document.getElementById(qid);
+      if (ta && !ta.value.trim() && v.answer) { ta.value = v.answer; grow(ta); setSt(qid, "Збережено раніше", "ok"); }
+    });
+    updateCount();
+  } catch (e) { document.getElementById("conn").textContent = "Немає зв'язку — пишіть, збережеться на цьому пристрої"; }
+}
+
+build();
+loadRemote();
+</script>
+</body>
+</html>
